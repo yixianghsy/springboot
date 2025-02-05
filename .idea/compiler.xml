@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-mybatis-splus" />
+        <module name="springboot-aop" />
         <module name="spring-elk" />
         <module name="springboot" />
         <module name="spring-mysql-cluster" />
@@ -20,6 +21,7 @@
       <module name="spring-mybatis-splus" options="-parameters" />
       <module name="spring-mysql-cluster" options="-parameters" />
       <module name="springboot" options="-parameters" />
+      <module name="springboot-aop" options="" />
     </option>
   </component>
 </project>

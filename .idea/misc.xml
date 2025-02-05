@@ -8,8 +8,9 @@
         <option value="$PROJECT_DIR$/spring-elk/pom.xml" />
         <option value="$PROJECT_DIR$/spring-mybatis-splus/pom.xml" />
         <option value="$PROJECT_DIR$/spring-mysql-cluster/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-aop/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>
