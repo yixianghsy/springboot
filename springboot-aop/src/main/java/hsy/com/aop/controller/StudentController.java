@@ -1,13 +1,15 @@
 package hsy.com.aop.controller;
 
+import hsy.com.aop.dto.NullTest;
+import hsy.com.aop.dto.NumTest;
 import hsy.com.aop.dto.Student;
+import hsy.com.aop.uitl.ResultCode;
 import hsy.com.aop.validator.WebLogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,5 +39,27 @@ public class StudentController{
     @RequestMapping("/detail")
     public @ResponseBody Student student(int id){
         return new Student(1,"kobe",30);
+    }
+
+    /**
+     * https://blog.csdn.net/qq_41061437/article/details/132446337
+     * @param nullTest
+     * @return
+     */
+    @PostMapping(value = "/test")
+    public ResultCode test(@RequestBody @Validated NullTest nullTest) {
+        System.err.println(nullTest.getName());
+        return ResultCode.SUCCESS;
+    }
+
+    /**
+     * https://blog.csdn.net/qq_41061437/article/details/132446337
+     * @param numTest
+     * @return
+     */
+    @PostMapping(value = "/test2")
+    public ResultCode test2(@RequestBody @Validated NumTest numTest) {
+        System.err.println(numTest.getNum());
+        return ResultCode.SUCCESS;
     }
 }
