@@ -4,6 +4,7 @@ import hsy.com.aop.dto.NullTest;
 import hsy.com.aop.dto.NumTest;
 import hsy.com.aop.dto.Student;
 import hsy.com.aop.uitl.ResultCode;
+import hsy.com.aop.uitl.RetResult;
 import hsy.com.aop.validator.WebLogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,9 +48,9 @@ public class StudentController{
      * @return
      */
     @PostMapping(value = "/test")
-    public ResultCode test(@RequestBody @Validated NullTest nullTest) {
+    public @ResponseBody RetResult test(@RequestBody @Validated NullTest nullTest) {
         System.err.println(nullTest.getName());
-        return ResultCode.SUCCESS;
+        return RetResult.success();
     }
 
     /**
@@ -58,7 +59,7 @@ public class StudentController{
      * @return
      */
     @PostMapping(value = "/test2")
-    public ResultCode test2(@RequestBody @Validated NumTest numTest) {
+    public @ResponseBody ResultCode test2(@RequestBody @Validated NumTest numTest) {
         System.err.println(numTest.getNum());
         return ResultCode.SUCCESS;
     }
