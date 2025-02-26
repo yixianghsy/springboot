@@ -11,4 +11,5 @@ public interface UserMapper {
   int insertUser(User user);
 
   User getByUserNameAndPassword(User user);
+  Integer selectCount();
 }

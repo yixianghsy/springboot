@@ -12,12 +12,14 @@
         <module name="spring-elk" />
         <module name="springboot" />
         <module name="spring-mysql-cluster" />
+        <module name="spring-mybatis" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="spring-elk" options="-parameters" />
+      <module name="spring-mybatis" options="-parameters" />
       <module name="spring-mybatis-splus" options="-parameters" />
       <module name="spring-mysql-cluster" options="-parameters" />
       <module name="springboot" options="-parameters" />
