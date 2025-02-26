@@ -77,7 +77,7 @@
             AND keyword = #{keyword}
           </if>
         </where>
-   limit  #{start}, #{pageSize}) b ;
+   limit  #{start}, #{pageSize}) b group by  b.sort desc
 
   </select>
 </mapper>

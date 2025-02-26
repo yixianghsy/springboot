@@ -8,9 +8,14 @@
         <option value="$PROJECT_DIR$/spring-elk/pom.xml" />
         <option value="$PROJECT_DIR$/spring-mybatis-splus/pom.xml" />
         <option value="$PROJECT_DIR$/spring-mysql-cluster/pom.xml" />
-        <option value="$PROJECT_DIR$/springboot-aop/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-springsecurity/pom.xml" />
         <option value="$PROJECT_DIR$/spring-mybatis/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/springboot-springsecurity/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
