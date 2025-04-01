@@ -10,6 +10,11 @@
         <option value="$PROJECT_DIR$/spring-mysql-cluster/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-springsecurity/pom.xml" />
         <option value="$PROJECT_DIR$/spring-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-zookeeper-dubbo/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-zookeeper-dubbo/dubbo-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-zookeeper-dubbo/dubbo-interface/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-zookeeper-dubbo/dubbo-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-mongodb/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
