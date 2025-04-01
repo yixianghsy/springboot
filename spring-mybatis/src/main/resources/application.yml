@@ -25,6 +25,7 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true # 通常数据库列使用大写字母组成的单词命名，单词间用下划线分隔；而 Java 属性一般遵循驼峰命名法约定。为了在这两种命名方式之间启用自动映射，需要将 mapUnderscoreToCamelCase 设置为 true。
 
+
 #showSql
 logging:
   level:
