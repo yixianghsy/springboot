@@ -33,17 +33,17 @@ spring:
     servlet:
         multipart:
             # 文件上传限制
-            max-file-size: 30MB
-            max-request-size: 50MB
+            max-file-size: 1020MB
+            max-request-size: 1020MB
     # MongoDB 配置
     data:
         mongodb:
-            uri: mongodb://admin:123456@192.168.10.251:27017/test-db?authSource=admin # TODO 根据自己的配置修改
-#          host: 39.107.102.142
-#          port: 27017
-#          username: admin
-#          password: 123456
-#          database: test-db
+            uri: mongodb://admin:123456@192.168.10.251:27017/filetest?authSource=admin # TODO 根据自己的配置修改
+#            host: 39.107.102.142
+#            port: 27017
+#            username: admin
+#            password: 123456
+            database: filetest
     #配置Mapper.xml映射文件
 
 mybatis:

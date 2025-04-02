@@ -17,6 +17,7 @@ import java.util.Optional;
 
 @Service
 public class FileServiceImpl implements FileService {
+    //采用MongReposity来操作MongoDB
     @Autowired
     private FileRepository fileRepository;
 

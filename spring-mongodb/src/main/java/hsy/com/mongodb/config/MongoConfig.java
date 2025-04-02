@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MongoConfig {
     //获取配置文件中数据库信息
-    @Value("filetest")
+    @Value("${spring.data.mongodb.database}")
     String db;
 
 //    GridFSBucket用于打开下载流
