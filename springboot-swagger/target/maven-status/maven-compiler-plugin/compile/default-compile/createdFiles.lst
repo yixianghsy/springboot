@@ -1,9 +1,0 @@
-springbootswagger\SpringbootSwaggerApplication.class
-springbootswagger\controller\UserController.class
-springbootswagger\domain\SwaggerProperties.class
-springbootswagger\pojo\User.class
-springbootswagger\domain\SwaggerProperties$SwaggerPropertiesBuilder.class
-springbootswagger\config\BaseSwaggerConfig$1.class
-springbootswagger\config\BaseSwaggerConfig.class
-springbootswagger\config\SwaggerConfig.class
-springbootswagger\config\WebMvcConfig.class

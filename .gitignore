@@ -6,3 +6,6 @@ dubbo*.log.*
 /*/target/
 #忽略所有.idea目录
 .idea/
+*.iml
+*/*.iml
+*/*/.iml

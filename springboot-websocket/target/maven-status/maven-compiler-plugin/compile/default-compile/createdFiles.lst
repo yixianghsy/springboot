@@ -1,8 +1,0 @@
-com\websocket\bean\PayRequestDto.class
-com\websocket\entity\AlipayEntity.class
-com\websocket\config\AlipayConfig.class
-com\websocket\utils\pay\Alipay.class
-com\websocket\service\AlipayService.class
-com\websocket\controller\PayController.class
-com\websocket\service\impl\AlipayServiceImpl.class
-com\websocket\SpringbootWebsocketApplication.class
