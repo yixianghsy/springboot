@@ -1,0 +1,8 @@
+#忽略dubbo日志
+dubbo*.log
+dubbo*.log.*
+#忽略所有target目录
+/*/*/target/
+/*/target/
+#忽略所有.idea目录
+.idea/

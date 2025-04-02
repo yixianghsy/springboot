@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/spring-zookeeper-dubbo/dubbo-interface/pom.xml" />
         <option value="$PROJECT_DIR$/spring-zookeeper-dubbo/dubbo-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/spring-mongodb/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-aop/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

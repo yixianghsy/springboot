@@ -11,6 +11,7 @@
         <module name="spring-mybatis-splus" />
         <module name="spring-mysql-cluster" />
         <module name="dubbo-provider" />
+        <module name="springboot-aop" />
         <module name="spring-mongodb" />
         <module name="spring-elk" />
         <module name="springboot" />
@@ -20,21 +21,20 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="springboot-aop" target="1.6" />
       <module name="springboot-springsecurity" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="dubbo-consumer" options="-parameters" />
-      <module name="dubbo-provider" options="-parameters" />
-      <module name="spring-elk" options="-parameters" />
-      <module name="spring-mongodb" options="-parameters" />
-      <module name="spring-mybatis" options="-parameters" />
-      <module name="spring-mybatis-splus" options="-parameters" />
-      <module name="spring-mysql-cluster" options="-parameters" />
-      <module name="spring-zookeeper-dubbo" options="-parameters" />
-      <module name="springboot" options="-parameters" />
+      <module name="dubbo-consumer" options="" />
+      <module name="dubbo-provider" options="" />
+      <module name="spring-elk" options="" />
+      <module name="spring-mongodb" options="" />
+      <module name="spring-mybatis" options="" />
+      <module name="spring-mybatis-splus" options="" />
+      <module name="spring-mysql-cluster" options="" />
+      <module name="spring-zookeeper-dubbo" options="" />
+      <module name="springboot" options="" />
       <module name="springboot-aop" options="" />
     </option>
   </component>
