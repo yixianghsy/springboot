@@ -1,5 +1,6 @@
 server:
     port: 8080
+    address: localhost
 spring:
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
@@ -20,17 +21,31 @@ spring:
                 url-pattern: /druid/*
     application:
         name: MongoDB
-
+    thymeleaf:
+        # thymeleaf配置，开发环境不启用缓存，正式环境下请启用缓存，提高性能
+        cache: false
+        # thymeleaf对html元素格式要求严格，设置它的mode为HTML，忘记结束标签后不会报错
+        mode: HTML
+    http:
+      encoding:
+          # 编码
+          charset: UTF-8
+    servlet:
+        multipart:
+            # 文件上传限制
+            max-file-size: 30MB
+            max-request-size: 50MB
     # MongoDB 配置
     data:
         mongodb:
             uri: mongodb://admin:123456@192.168.10.251:27017/test-db?authSource=admin # TODO 根据自己的配置修改
-    #      host: 88.90.0.37
-    #      port: 27017
-    #      username: admin
-    #      password: 123456
-    #      database: test-db
+#          host: 39.107.102.142
+#          port: 27017
+#          username: admin
+#          password: 123456
+#          database: test-db
     #配置Mapper.xml映射文件
+
 mybatis:
     mapper-locations:
         - classpath:mapping/*.xml
