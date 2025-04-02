@@ -33,8 +33,8 @@ spring:
     servlet:
         multipart:
             # 文件上传限制
-            max-file-size: 1020MB
-            max-request-size: 1020MB
+            max-file-size: 1024MB
+            max-request-size: 1024MB
     # MongoDB 配置
     data:
         mongodb:
