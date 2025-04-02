@@ -36,14 +36,17 @@ spring:
             max-file-size: 1024MB
             max-request-size: 1024MB
     # MongoDB 配置
+#    data:
+#        mongodb:
+#            uri: mongodb://admin:123456@192.168.10.251:27017/test-db?authSource=admin # TODO 根据自己的配置修改
     data:
         mongodb:
-            uri: mongodb://admin:123456@192.168.10.251:27017/test-db?authSource=admin # TODO 根据自己的配置修改
-#          host: 39.107.102.142
-#          port: 27017
-#          username: admin
-#          password: 123456
-            database: test-db
+            authentication-database: admin
+            database: filetest
+            host: 192.168.10.251
+            password: '123456'
+            port: 27017
+            username: admin
     #配置Mapper.xml映射文件
 
 mybatis:
