@@ -38,12 +38,12 @@ spring:
     # MongoDB 配置
     data:
         mongodb:
-            uri: mongodb://admin:123456@192.168.10.251:27017/filetest?authSource=admin # TODO 根据自己的配置修改
-#            host: 39.107.102.142
-#            port: 27017
-#            username: admin
-#            password: 123456
-            database: filetest
+            uri: mongodb://admin:123456@192.168.10.251:27017/test-db?authSource=admin # TODO 根据自己的配置修改
+#          host: 39.107.102.142
+#          port: 27017
+#          username: admin
+#          password: 123456
+            database: test-db
     #配置Mapper.xml映射文件
 
 mybatis:
