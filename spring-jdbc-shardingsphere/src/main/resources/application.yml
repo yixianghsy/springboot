@@ -1,29 +1,14 @@
 server:
-   port: 8090
+  port: 8020
 spring:
-   application:
-      name: jdbc
-   profiles:
-      active: dynamic
-   main:
-      allow-bean-definition-overriding: true
-      # ====================== ↓↓↓↓↓↓ 配置druid↓↓↓↓↓↓ ======================
-   autoconfigure:
-      exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
-   datasource:
-      type: com.alibaba.druid.pool.DruidDataSource
-      druid:
-         stat-view-servlet:
-            enabled: true
-            loginUsername: admin
-            loginPassword: 123456
-         web-stat-filter:
-            enabled: true
+  application:
+    name: cart-service
+  profiles:
+    active: dev
+  #配置Mapper.xml映射文件
 mybatis:
-   mapper-locations:
-      - classpath:mybatis/*.xml
-pagehelper:
-   helperDialect: mysql
-   params: count=countSql
-   reasonable: true
-   supportMethodsArguments: true
+  mapper-locations: classpath:mybatis/*.xml # classpath 相对的路径是resources目录
+#  type-aliases-package: hsy.com.mybatis.entity # 在*.Mapper.xml中比如 ResultType 就可以简写了
+#  configuration:
+#    map-underscore-to-camel-case: true # 通常数据库列使用大写字母组成的单词命名，单词间用下划线分隔；而 Java 属性一般遵循驼峰命名法约定。为了在这两种命名方式之间启用自动映射，需要将 mapUnderscoreToCamelCase 设置为 true。
+

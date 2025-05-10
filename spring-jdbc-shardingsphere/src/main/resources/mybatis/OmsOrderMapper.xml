@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hsy.com.shardingsphere.mapper.OmsOrderMapper">
+  <resultMap id="BaseResultMap" type="hsy.com.shardingsphere.model.OmsOrder">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="coupon_id" jdbcType="BIGINT" property="couponId" />
+    <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="member_username" jdbcType="VARCHAR" property="memberUsername" />
+    <result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />
+    <result column="pay_amount" jdbcType="DECIMAL" property="payAmount" />
+    <result column="freight_amount" jdbcType="DECIMAL" property="freightAmount" />
+    <result column="promotion_amount" jdbcType="DECIMAL" property="promotionAmount" />
+    <result column="integration_amount" jdbcType="DECIMAL" property="integrationAmount" />
+    <result column="coupon_amount" jdbcType="DECIMAL" property="couponAmount" />
+    <result column="discount_amount" jdbcType="DECIMAL" property="discountAmount" />
+    <result column="pay_type" jdbcType="INTEGER" property="payType" />
+    <result column="source_type" jdbcType="INTEGER" property="sourceType" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="order_type" jdbcType="INTEGER" property="orderType" />
+    <result column="delivery_company" jdbcType="VARCHAR" property="deliveryCompany" />
+    <result column="delivery_sn" jdbcType="VARCHAR" property="deliverySn" />
+    <result column="auto_confirm_day" jdbcType="INTEGER" property="autoConfirmDay" />
+    <result column="integration" jdbcType="INTEGER" property="integration" />
+    <result column="growth" jdbcType="INTEGER" property="growth" />
+    <result column="promotion_info" jdbcType="VARCHAR" property="promotionInfo" />
+    <result column="bill_type" jdbcType="INTEGER" property="billType" />
+    <result column="bill_header" jdbcType="VARCHAR" property="billHeader" />
+    <result column="bill_content" jdbcType="VARCHAR" property="billContent" />
+    <result column="bill_receiver_phone" jdbcType="VARCHAR" property="billReceiverPhone" />
+    <result column="bill_receiver_email" jdbcType="VARCHAR" property="billReceiverEmail" />
+    <result column="receiver_name" jdbcType="VARCHAR" property="receiverName" />
+    <result column="receiver_phone" jdbcType="VARCHAR" property="receiverPhone" />
+    <result column="receiver_post_code" jdbcType="VARCHAR" property="receiverPostCode" />
+    <result column="receiver_province" jdbcType="VARCHAR" property="receiverProvince" />
+    <result column="receiver_city" jdbcType="VARCHAR" property="receiverCity" />
+    <result column="receiver_region" jdbcType="VARCHAR" property="receiverRegion" />
+    <result column="receiver_detail_address" jdbcType="VARCHAR" property="receiverDetailAddress" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="confirm_status" jdbcType="INTEGER" property="confirmStatus" />
+    <result column="use_integration" jdbcType="INTEGER" property="useIntegration" />
+    <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
+    <result column="delivery_time" jdbcType="TIMESTAMP" property="deliveryTime" />
+    <result column="receive_time" jdbcType="TIMESTAMP" property="receiveTime" />
+    <result column="comment_time" jdbcType="TIMESTAMP" property="commentTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <resultMap id="OrderDetailMap" type="hsy.com.shardingsphere.dto.OrderDetailDTO">
+    <id column="id" property="id" />
+    <result column="order_sn" property="orderSn" />
+    <result column="receiver_province" property="receiverProvince" />
+    <result column="receiver_city" property="receiverCity" />
+    <result column="receiver_region" property="receiverRegion" />
+    <result column="receiver_detail_address" property="receiverDetailAddress" />
+    <result column="pay_amount" property="payAmount" />
+    <result column="status" property="status"></result>
+    <result column="create_time" property="createTime"></result>
+    <result column="normal_order_overtime" property="normalOrderOvertime"></result>
+    <collection property="orderItemList" ofType="hsy.com.shardingsphere.model.OmsOrderItem">
+      <id column="item_id" property="id"></id>
+      <result column="product_pic" property="productPic"></result>
+      <result column="product_name" property="productName"></result>
+      <result column="product_price" property="productPrice"></result>
+      <result column="product_quantity" property="productQuantity"></result>
+    </collection>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, member_id, coupon_id, order_sn, create_time, member_username, total_amount, pay_amount, 
+    freight_amount, promotion_amount, integration_amount, coupon_amount, discount_amount, 
+    pay_type, source_type, status, order_type, delivery_company, delivery_sn, auto_confirm_day, 
+    integration, growth, promotion_info, bill_type, bill_header, bill_content, bill_receiver_phone, 
+    bill_receiver_email, receiver_name, receiver_phone, receiver_post_code, receiver_province, 
+    receiver_city, receiver_region, receiver_detail_address, note, confirm_status,
+    use_integration, payment_time, delivery_time, receive_time, comment_time, modify_time
+  </sql>
+  <select id="selectByExample" parameterType="hsy.com.shardingsphere.model.OmsOrderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from oms_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="getOrderDetail" resultMap="OrderDetailMap">
+    SELECT
+      o.id,
+      o.order_sn,
+      o.receiver_province,
+      o.receiver_city,
+      o.receiver_region,
+      o.receiver_detail_address,
+      o.pay_amount,
+      o.status,
+      o.create_time,
+      oi.product_pic,
+      oi.product_name,
+      oi.id as item_id,
+      oi.product_price,
+      oi.product_quantity,
+      (SELECT normal_order_overtime FROM oms_order_setting  LIMIT 0,1) as normal_order_overtime
+    FROM oms_order o
+      LEFT JOIN oms_order_item oi on o.id=oi.order_id
+    WHERE o.id=#{id} and o.delete_status=0
+  </select>
+  <resultMap id="orderDetailMap" type="hsy.com.shardingsphere.dto.OmsOrderDetail"
+             extends="hsy.com.shardingsphere.mapper.OmsOrderMapper.BaseResultMap">
+    <collection property="orderItemList" columnPrefix="ot_"
+                resultMap="hsy.com.shardingsphere.mapper.OmsOrderItemMapper.BaseResultMap">
+    </collection>
+  </resultMap>
+  <select id="getList"  resultMap="orderDetailMap">
+    SELECT
+    o.id,
+    o.status,
+    o.total_amount,
+    o.pay_amount,
+    o.order_sn,
+    o.member_id,
+    ot.id ot_id,
+    ot.product_id ot_product_id,
+    ot.product_name ot_product_name,
+    ot.product_pic ot_product_pic,
+    ot.product_price ot_product_price,
+    ot.product_sku_id ot_product_sku_id,
+    ot.product_sku_code ot_product_sku_code,
+    ot.product_quantity ot_product_quantity,
+    ot.product_attr ot_product_attr
+    FROM
+    oms_order o
+    LEFT JOIN
+    oms_order_item ot ON o.id = ot.order_id
+    WHERE
+    o.delete_status = 0
+
+  </select>
+
+  <insert id="insert" parameterType="hsy.com.shardingsphere.model.OmsOrder">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into oms_order (member_id, coupon_id, order_sn, 
+      create_time, member_username, total_amount, 
+      pay_amount, freight_amount, promotion_amount, 
+      integration_amount, coupon_amount, discount_amount, 
+      pay_type, source_type, status, 
+      order_type, delivery_company, delivery_sn, 
+      auto_confirm_day, integration, growth, 
+      promotion_info, bill_type, bill_header, 
+      bill_content, bill_receiver_phone, bill_receiver_email, 
+      receiver_name, receiver_phone, receiver_post_code, 
+      receiver_province, receiver_city, receiver_region, 
+      receiver_detail_address, note, confirm_status, 
+      use_integration, payment_time,
+      delivery_time, receive_time, comment_time, 
+      modify_time)
+    values (#{memberId,jdbcType=BIGINT}, #{couponId,jdbcType=BIGINT}, #{orderSn,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{memberUsername,jdbcType=VARCHAR}, #{totalAmount,jdbcType=DECIMAL}, 
+      #{payAmount,jdbcType=DECIMAL}, #{freightAmount,jdbcType=DECIMAL}, #{promotionAmount,jdbcType=DECIMAL}, 
+      #{integrationAmount,jdbcType=DECIMAL}, #{couponAmount,jdbcType=DECIMAL}, #{discountAmount,jdbcType=DECIMAL}, 
+      #{payType,jdbcType=INTEGER}, #{sourceType,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{orderType,jdbcType=INTEGER}, #{deliveryCompany,jdbcType=VARCHAR}, #{deliverySn,jdbcType=VARCHAR}, 
+      #{autoConfirmDay,jdbcType=INTEGER}, #{integration,jdbcType=INTEGER}, #{growth,jdbcType=INTEGER}, 
+      #{promotionInfo,jdbcType=VARCHAR}, #{billType,jdbcType=INTEGER}, #{billHeader,jdbcType=VARCHAR}, 
+      #{billContent,jdbcType=VARCHAR}, #{billReceiverPhone,jdbcType=VARCHAR}, #{billReceiverEmail,jdbcType=VARCHAR}, 
+      #{receiverName,jdbcType=VARCHAR}, #{receiverPhone,jdbcType=VARCHAR}, #{receiverPostCode,jdbcType=VARCHAR}, 
+      #{receiverProvince,jdbcType=VARCHAR}, #{receiverCity,jdbcType=VARCHAR}, #{receiverRegion,jdbcType=VARCHAR}, 
+      #{receiverDetailAddress,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, #{confirmStatus,jdbcType=INTEGER}, 
+      #{useIntegration,jdbcType=INTEGER}, #{paymentTime,jdbcType=TIMESTAMP},
+      #{deliveryTime,jdbcType=TIMESTAMP}, #{receiveTime,jdbcType=TIMESTAMP}, #{commentTime,jdbcType=TIMESTAMP}, 
+      #{modifyTime,jdbcType=TIMESTAMP})
+  </insert>
+
+</mapper>
