@@ -198,6 +198,33 @@
     o.delete_status = 0
 
   </select>
+  <!-- 查询分页数据 -->
+  <select id="findMemberOrderList" resultMap="orderDetailMap">
+    SELECT
+    o.id,
+    o.status,
+    o.total_amount,
+    o.pay_amount,
+    o.order_sn,
+    o.member_id,
+    ot.id ot_id,
+    ot.product_id ot_product_id,
+    ot.product_name ot_product_name,
+    ot.product_pic ot_product_pic,
+    ot.product_price ot_product_price,
+    ot.product_sku_id ot_product_sku_id,
+    ot.product_sku_code ot_product_sku_code,
+    ot.product_quantity ot_product_quantity,
+    ot.product_attr ot_product_attr
+    FROM
+    oms_order o
+    LEFT JOIN
+    oms_order_item ot ON o.id = ot.order_id
+    WHERE
+    o.delete_status = 0
+
+
+  </select>
 
   <insert id="insert" parameterType="hsy.com.shardingsphere.model.OmsOrder">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">

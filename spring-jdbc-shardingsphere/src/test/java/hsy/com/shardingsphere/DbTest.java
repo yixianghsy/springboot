@@ -1,6 +1,8 @@
 package hsy.com.shardingsphere;
 
 
+import hsy.com.shardingsphere.dto.OmsOrderDetail;
+import hsy.com.shardingsphere.dto.OrderDetailDTO;
 import hsy.com.shardingsphere.service.OmsOrderService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,7 +34,11 @@ public class DbTest {
 
     @Test
     public void getOrder() {
-        omsOrderService.getList();
+        List<OmsOrderDetail> list = omsOrderService.getList();
+        for (OmsOrderDetail omsOrderDetail :list
+             ) {
+            System.out.printf("输出结果："+omsOrderDetail);
+        }
     }
 
 }

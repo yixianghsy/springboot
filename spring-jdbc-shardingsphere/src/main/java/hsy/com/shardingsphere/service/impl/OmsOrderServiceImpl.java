@@ -1,11 +1,14 @@
 package hsy.com.shardingsphere.service.impl;
 
+import hsy.com.shardingsphere.dto.OmsOrderDetail;
 import hsy.com.shardingsphere.dto.OrderDetailDTO;
 import hsy.com.shardingsphere.mapper.OmsOrderMapper;
 import hsy.com.shardingsphere.service.OmsOrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
 /**
@@ -18,7 +21,8 @@ public class OmsOrderServiceImpl implements OmsOrderService {
     @Autowired
     private OmsOrderMapper orderMapper;
     @Override
-    public OrderDetailDTO getList() {
-        return orderMapper.getList();
+    public List<OmsOrderDetail> getList() {
+        List<OmsOrderDetail> list = orderMapper.findMemberOrderList();
+        return list;
     }
 }
