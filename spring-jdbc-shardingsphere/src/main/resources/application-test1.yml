@@ -1,0 +1,107 @@
+spring:
+  shardingsphere:
+    props:
+      sql:
+        show: true # 参数配置，显示sql
+    datasource: # 配置数据源
+      # 给每个数据源取别名，下面的ds1,ds2,ds3任意取名字
+      names: master0,master1,salve0,salve1
+      # 给master-ds1每个数据源配置数据库连接信息
+      master0:
+        # 配置druid数据源
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        filters: stat,wall,log4j2
+        initial-size: 5
+        maxActive: 20
+        maxPoolPreparedStatementPerConnectionSize: 20
+        maxWait: 60000
+        min-idle: 5
+        minEvictableIdleTimeMillis: 300000
+        password: root
+        poolPreparedStatements: true
+        testOnBorrow: false
+        testOnReturn: false
+        testWhileIdle: true
+        timeBetweenEvictionRunsMillis: 60000
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.10.251:3306/mybatisdemo?characterEncoding=utf-8
+        username: root
+        validationQuery: 'SELECT 1 '
+      # 配置ds2-slave
+      master1:
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        filters: stat,wall,log4j2
+        password: root
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.10.251:3306/mybatisdemo?characterEncoding=utf-8
+        username: root
+      salve0:
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        filters: stat,wall,log4j2
+        password: root
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.10.251:3306/mybatisdemo?characterEncoding=utf-8
+        username: root
+      salve1:
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        filters: stat,wall,log4j2
+        password: root
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.10.251:3306/mybatisdemo?characterEncoding=utf-8
+        username: root
+      # 配置默认数据源
+      masterslave: # 配置数据源的读写分离，但是数据库一定要做主从复制
+        # 配置主从名称，可以任意取名字
+        name: ms
+        # 配置主库master，负责数据的写入
+        master-data-source-name: master0,master1
+        # 配置从库slave节点
+        slave-data-source-names: salve0,salve1
+        # 配置slave节点的负载均衡均衡策略，采用轮询机制
+        load-balance-algorithm-type: round_robin
+    sharding:
+      master-slave-rules:                 # 在使用数据分片功能情况下，配置读写分离功能
+        ds0:                              # 自定义一个虚拟数据源名字，用于自动路由下方主从数据源
+          masterDataSourceName: master0    # 指定主数据源
+          slaveDataSourceNames:           # 指定从数据源
+            - salve0
+            - salve1
+          loadBalanceAlgorithmType: round_robin
+        ds1: # 自定义一个虚拟数据源名字，用于自动路由下方主从数据源
+          masterDataSourceName: master1    # 指定主数据源
+          slaveDataSourceNames: # 指定从数据源
+            - salve0
+            - salve1
+          loadBalanceAlgorithmType: round_robin
+        binding-tables:
+          - oms_order                           # 指明了分库分表要处理的虚拟表名字
+          - oms_order_item
+      tables:
+        # oms_order 逻辑表名
+          # 数据节点：数据源$->{0..N}.逻辑表名$->{0..N}
+        oms_order:
+          actual-data-nodes: ds$->{0..1}.oms_order_$->{0..1}
+          database-strategy:
+            inline:
+              algorithm-expression: ds$->{id % 2 }
+              sharding-column: id
+          key-generator:
+            column: id
+            props:
+              worker:
+                id: 1
+            type: SNOWFLAKE
+          table-strategy:
+            inline:
+              algorithm-expression: oms_order_$->{id % 2}
+              sharding-column: id
+        oms_order_item:
+          actual-data-nodes: ds$->{0..1}.oms_order_item_$->{0..1}
+          table-strategy:
+            inline:
+              algorithm-expression: oms_order_item_$->{order_id % 2}
+              sharding-column: order_id

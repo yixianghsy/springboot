@@ -4,7 +4,7 @@ spring:
   application:
     name: cart-service
   profiles:
-    active: dev
+    active: test1
   #配置Mapper.xml映射文件
 mybatis:
   mapper-locations: classpath:mybatis/*.xml # classpath 相对的路径是resources目录

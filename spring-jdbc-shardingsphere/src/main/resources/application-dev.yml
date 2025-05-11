@@ -71,7 +71,8 @@ spring:
     sharding:
 # ====================== ↓↓↓↓↓↓ 分库分表配置 ↓↓↓↓↓↓ ======================
       binding‐tables:
-        - oms_order,oms_order_item
+        - oms_order
+        - oms_order_item
       tables:
         oms_order:
           actual-data-nodes: ds-master-$->{0..1}.oms_order_$->{0..1}

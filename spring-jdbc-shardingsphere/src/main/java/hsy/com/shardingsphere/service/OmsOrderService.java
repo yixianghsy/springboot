@@ -3,6 +3,7 @@ package hsy.com.shardingsphere.service;
 
 import hsy.com.shardingsphere.dto.OmsOrderDetail;
 import hsy.com.shardingsphere.dto.OrderDetailDTO;
+import hsy.com.shardingsphere.model.OmsOrder;
 
 import java.util.List;
 
@@ -12,4 +13,5 @@ import java.util.List;
  */
 public interface OmsOrderService {
     List<OmsOrderDetail> getList();
+    void  insert(OmsOrder omsOrder);
 }

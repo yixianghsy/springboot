@@ -18,8 +18,6 @@ public interface OmsOrderMapper {
     List<OmsOrder> selectByExample(OmsOrderExample example);
 
     OrderDetailDTO getOrderDetail(Long id);
-   List<OrderDetailDTO>  getList();
-
 
     List<OmsOrderDetail> findMemberOrderList();
 
