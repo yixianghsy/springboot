@@ -1,10 +1,10 @@
 server:
-  port: 8020
+  port: 8034
 spring:
   application:
     name: cart-service
   profiles:
-    active: test1
+    active: dev
   #配置Mapper.xml映射文件
 mybatis:
   mapper-locations: classpath:mybatis/*.xml # classpath 相对的路径是resources目录

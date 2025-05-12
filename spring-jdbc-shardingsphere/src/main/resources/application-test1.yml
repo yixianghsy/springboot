@@ -1,3 +1,6 @@
+server:
+  error:
+    include-stacktrace: always
 spring:
   shardingsphere:
     props:
@@ -78,8 +81,7 @@ spring:
             - salve1
           loadBalanceAlgorithmType: round_robin
         binding-tables:
-          - oms_order                           # 指明了分库分表要处理的虚拟表名字
-          - oms_order_item
+          - oms_order,oms_order_item # 指明了分库分表要处理的虚拟表名字
       tables:
         # oms_order 逻辑表名
           # 数据节点：数据源$->{0..N}.逻辑表名$->{0..N}

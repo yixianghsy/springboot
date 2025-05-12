@@ -4,7 +4,7 @@ server:
 spring:
   shardingsphere:
     datasource:
-      names: ds-master-0,ds-slave-0-1,ds-slave-0-2,ds-master-1,ds-slave-1-1,ds-slave-1-2
+      names: ds-master-0,ds-master-1
       ds-master-0:
         connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
         driver-class-name: com.mysql.cj.jdbc.Driver
@@ -25,22 +25,6 @@ spring:
         url: jdbc:mysql://192.168.10.251:3306/mybatisdemo?characterEncoding=utf-8
         username: root
         validationQuery: 'SELECT 1 '
-      ds-slave-0-1:
-        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        filters: stat,wall,log4j2
-        password: root
-        type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://192.168.10.251:3306/mybatisdemo?characterEncoding=utf-8
-        username: root
-      ds-slave-0-2:
-        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        filters: stat,wall,log4j2
-        password: root
-        type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://192.168.10.251:3306/mybatisdemo?characterEncoding=utf-8
-        username: root
       ds-master-1:
         connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
         driver-class-name: com.mysql.cj.jdbc.Driver
@@ -49,22 +33,7 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
         url: jdbc:mysql://192.168.10.251:3306/mybatisdemo?characterEncoding=utf-8
         username: root
-      ds-slave-1-1:
-        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        filters: stat,wall,log4j2
-        password: root
-        type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://192.168.10.251:3306/mybatisdemo?characterEncoding=utf-8
-        username: root
-      ds-slave-1-2:
-        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        filters: stat,wall,log4j2
-        password: root
-        type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://192.168.10.251:3306/mybatisdemo?characterEncoding=utf-8
-        username: root
+
     props:
       sql:
         show: true

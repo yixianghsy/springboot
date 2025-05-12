@@ -197,9 +197,7 @@
     LEFT JOIN
     oms_order_item ot ON o.id = ot.order_id
     WHERE
-    o.delete_status = 0
-
-
+    o.delete_status = 0  and o.member_id=1;
   </select>
 
   <insert id="insert" parameterType="hsy.com.shardingsphere.model.OmsOrder">
