@@ -1,0 +1,122 @@
+11:00:19.868 [main] ERROR o.s.b.SpringApplication - [reportFailure,837] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'testLogController' method 
+hsy.com.elk.controller.TestLogController#testLog()
+to {GET /testLog}: There is already 'testController' bean method
+hsy.com.elk.controller.TestController#testLog() mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1794)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:405)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at hsy.com.elk.SpringElkApplication.main(SpringElkApplication.java:10)
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'testLogController' method 
+hsy.com.elk.controller.TestLogController#testLog()
+to {GET /testLog}: There is already 'testController' bean method
+hsy.com.elk.controller.TestController#testLog() mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.validateMethodMapping(AbstractHandlerMethodMapping.java:636)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:603)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:318)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:378)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:75)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lambda$detectHandlerMethods$1(AbstractHandlerMethodMapping.java:288)
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:286)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.processCandidateBean(AbstractHandlerMethodMapping.java:258)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:217)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:205)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:189)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790)
+	... 17 common frames omitted
+11:10:23.733 [main] ERROR o.s.b.SpringApplication - [reportFailure,837] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'testLogController' method 
+hsy.com.elk.controller.TestLogController#testLog()
+to {GET /testLog}: There is already 'testController' bean method
+hsy.com.elk.controller.TestController#testLog() mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1794)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:405)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at hsy.com.elk.SpringElkApplication.main(SpringElkApplication.java:10)
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'testLogController' method 
+hsy.com.elk.controller.TestLogController#testLog()
+to {GET /testLog}: There is already 'testController' bean method
+hsy.com.elk.controller.TestController#testLog() mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.validateMethodMapping(AbstractHandlerMethodMapping.java:636)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:603)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:318)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:378)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:75)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lambda$detectHandlerMethods$1(AbstractHandlerMethodMapping.java:288)
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:286)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.processCandidateBean(AbstractHandlerMethodMapping.java:258)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:217)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:205)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:189)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790)
+	... 17 common frames omitted
+11:11:11.975 [http-nio-8086-exec-1] ERROR h.c.e.c.TestController - [testLog,23] - 测试输出一个日志
+13:22:45.017 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:22:45.017】 >>>>>>
+13:22:50.012 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:22:50.012】 >>>>>>
+13:22:55.015 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:22:55.015】 >>>>>>
+13:23:00.015 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:23:00.015】 >>>>>>
+13:23:05.003 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:23:05.003】 >>>>>>
+13:23:10.015 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:23:10.015】 >>>>>>
+13:23:15.009 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:23:15.009】 >>>>>>
+13:23:20.013 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:23:20.013】 >>>>>>
+13:23:25.008 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:23:25.008】 >>>>>>
+13:23:30.014 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:23:30.014】 >>>>>>
+13:23:35.014 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:23:35.014】 >>>>>>
+13:23:40.005 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:23:40.005】 >>>>>>
+13:23:45.013 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:23:45.013】 >>>>>>
+13:23:50.014 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:23:50.014】 >>>>>>
+13:23:55.001 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:23:55.001】 >>>>>>
+13:24:00.011 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:24:00.011】 >>>>>>
+13:24:05.008 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:24:05.008】 >>>>>>
+13:24:10.002 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:24:10.002】 >>>>>>
+13:24:15.015 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:24:15.015】 >>>>>>
+13:24:20.012 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:24:20.012】 >>>>>>
+13:24:25.015 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:24:25.015】 >>>>>>
+13:24:30.005 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:24:30.004】 >>>>>>
+13:24:35.005 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:24:35.005】 >>>>>>
+13:24:40.006 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:24:40.006】 >>>>>>
+13:24:45.011 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:24:45.011】 >>>>>>
+13:24:50.007 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:24:50.007】 >>>>>>
+13:24:55.001 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:24:55.001】 >>>>>>
+13:25:00.008 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:25:00.008】 >>>>>>
+13:25:05.008 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:25:05.008】 >>>>>>
+13:25:10.008 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:25:10.008】 >>>>>>
+13:25:15.002 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:25:15.002】 >>>>>>
+13:25:20.014 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:25:20.014】 >>>>>>
+13:25:25.005 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:25:25.005】 >>>>>>
+13:25:30.013 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:25:30.013】 >>>>>>
+13:25:35.011 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:25:35.011】 >>>>>>
+13:25:40.011 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:25:40.011】 >>>>>>
+13:25:45.003 [scheduling-1] ERROR h.c.e.t.AppScheduledJobs - [test,33] - <<<<<< error Start: 【2025-05-15T13:25:45.003】 >>>>>>

@@ -1,0 +1,105 @@
+11:00:18.832 [main] INFO  h.c.e.SpringElkApplication - [logStarting,55] - Starting SpringElkApplication on hsy with PID 17820 (E:\tool\IdeaProjects\springboot\spring-elk\target\classes started by hsy in E:\tool\IdeaProjects\springboot)
+11:00:18.835 [main] INFO  h.c.e.SpringElkApplication - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+11:00:19.555 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8086"]
+11:00:19.556 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+11:00:19.557 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.41]
+11:00:19.623 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+11:00:19.854 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+11:01:52.966 [main] INFO  h.c.e.SpringElkApplication - [logStarting,55] - Starting SpringElkApplication on hsy with PID 10756 (E:\tool\IdeaProjects\springboot\spring-elk\target\classes started by hsy in E:\tool\IdeaProjects\springboot)
+11:01:52.970 [main] INFO  h.c.e.SpringElkApplication - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+11:01:53.633 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8086"]
+11:01:53.634 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+11:01:53.634 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.41]
+11:01:53.678 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+11:01:53.939 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8086"]
+11:01:53.959 [main] INFO  h.c.e.SpringElkApplication - [logStarted,61] - Started SpringElkApplication in 1.422 seconds (JVM running for 2.014)
+11:07:40.897 [main] INFO  h.c.e.SpringElkApplication - [logStarting,55] - Starting SpringElkApplication on hsy with PID 11588 (E:\tool\IdeaProjects\springboot\spring-elk\target\classes started by hsy in E:\tool\IdeaProjects\springboot)
+11:07:40.901 [main] INFO  h.c.e.SpringElkApplication - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+11:07:41.550 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8086"]
+11:07:41.551 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+11:07:41.551 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.41]
+11:07:41.596 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+11:07:41.852 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8086"]
+11:07:41.868 [main] INFO  h.c.e.SpringElkApplication - [logStarted,61] - Started SpringElkApplication in 1.41 seconds (JVM running for 2.003)
+11:08:36.899 [http-nio-8086-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:08:36.921 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [deBefore,35] - -------------------用户发起请求-----------------
+11:08:36.922 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [deBefore,37] - URL : http://localhost:8086/myTest
+11:08:36.922 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [deBefore,38] - HTTP_METHOD : GET
+11:08:36.922 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [deBefore,40] - HTTP_HEAD Type : null
+11:08:36.922 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [deBefore,41] - IP : 127.0.0.1
+11:08:36.923 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [deBefore,42] - CLASS_METHOD : hsy.com.elk.controller.TestController.test
+11:08:36.929 [http-nio-8086-exec-1] INFO  h.c.e.c.TestController - [test,14] - 日志开始1747278516929
+11:08:36.929 [http-nio-8086-exec-1] INFO  h.c.e.c.TestController - [test,15] - 日志结束1747278516929
+11:08:36.929 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [doAfterReturning,59] - 方法的返回值 : null
+11:08:36.929 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [doAfterReturning,60] - ------------------请求结束------------------
+11:08:36.929 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [after,72] - 方法最后执行.....
+11:10:22.841 [main] INFO  h.c.e.SpringElkApplication - [logStarting,55] - Starting SpringElkApplication on hsy with PID 7320 (E:\tool\IdeaProjects\springboot\spring-elk\target\classes started by hsy in E:\tool\IdeaProjects\springboot)
+11:10:22.845 [main] INFO  h.c.e.SpringElkApplication - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+11:10:23.483 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8086"]
+11:10:23.483 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+11:10:23.483 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.41]
+11:10:23.529 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+11:10:23.723 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+11:11:02.006 [main] INFO  h.c.e.SpringElkApplication - [logStarting,55] - Starting SpringElkApplication on hsy with PID 23340 (E:\tool\IdeaProjects\springboot\spring-elk\target\classes started by hsy in E:\tool\IdeaProjects\springboot)
+11:11:02.011 [main] INFO  h.c.e.SpringElkApplication - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+11:11:02.664 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8086"]
+11:11:02.664 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+11:11:02.665 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.41]
+11:11:02.709 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+11:11:02.971 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8086"]
+11:11:02.986 [main] INFO  h.c.e.SpringElkApplication - [logStarted,61] - Started SpringElkApplication in 1.426 seconds (JVM running for 1.988)
+11:11:11.942 [http-nio-8086-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:11:11.963 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [deBefore,35] - -------------------用户发起请求-----------------
+11:11:11.964 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [deBefore,37] - URL : http://localhost:8086/mytestLog
+11:11:11.964 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [deBefore,38] - HTTP_METHOD : GET
+11:11:11.964 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [deBefore,40] - HTTP_HEAD Type : null
+11:11:11.965 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [deBefore,41] - IP : 127.0.0.1
+11:11:11.966 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [deBefore,42] - CLASS_METHOD : hsy.com.elk.controller.TestController.testLog
+11:11:11.976 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [doAfterReturning,59] - 方法的返回值 : success
+11:11:11.976 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [doAfterReturning,60] - ------------------请求结束------------------
+11:11:11.977 [http-nio-8086-exec-1] INFO  h.c.e.aop.LogAspect - [after,72] - 方法最后执行.....
+13:22:43.325 [main] INFO  h.c.e.SpringElkApplication - [logStarting,55] - Starting SpringElkApplication on hsy with PID 22228 (E:\tool\IdeaProjects\springboot\spring-elk\target\classes started by hsy in E:\tool\IdeaProjects\springboot)
+13:22:43.327 [main] INFO  h.c.e.SpringElkApplication - [logStartupProfileInfo,651] - No active profile set, falling back to default profiles: default
+13:22:43.934 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8086"]
+13:22:43.935 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+13:22:43.935 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.41]
+13:22:43.981 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+13:22:44.270 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8086"]
+13:22:44.288 [main] INFO  h.c.e.SpringElkApplication - [logStarted,61] - Started SpringElkApplication in 1.373 seconds (JVM running for 1.873)
+13:22:45.019 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:22:45.019】 >>>>>>
+13:22:50.012 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:22:50.012】 >>>>>>
+13:22:55.015 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:22:55.015】 >>>>>>
+13:23:00.017 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:23:00.017】 >>>>>>
+13:23:05.004 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:23:05.004】 >>>>>>
+13:23:10.017 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:23:10.017】 >>>>>>
+13:23:15.011 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:23:15.011】 >>>>>>
+13:23:20.013 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:23:20.013】 >>>>>>
+13:23:25.008 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:23:25.008】 >>>>>>
+13:23:30.014 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:23:30.014】 >>>>>>
+13:23:35.016 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:23:35.016】 >>>>>>
+13:23:40.006 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:23:40.006】 >>>>>>
+13:23:45.013 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:23:45.013】 >>>>>>
+13:23:50.014 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:23:50.014】 >>>>>>
+13:23:55.002 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:23:55.002】 >>>>>>
+13:24:00.014 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:24:00.014】 >>>>>>
+13:24:05.008 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:24:05.008】 >>>>>>
+13:24:10.003 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:24:10.003】 >>>>>>
+13:24:15.018 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:24:15.018】 >>>>>>
+13:24:20.012 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:24:20.012】 >>>>>>
+13:24:25.015 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:24:25.015】 >>>>>>
+13:24:30.007 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:24:30.007】 >>>>>>
+13:24:35.005 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:24:35.005】 >>>>>>
+13:24:40.007 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:24:40.007】 >>>>>>
+13:24:45.013 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:24:45.013】 >>>>>>
+13:24:50.008 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:24:50.008】 >>>>>>
+13:24:55.002 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:24:55.002】 >>>>>>
+13:25:00.009 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:25:00.009】 >>>>>>
+13:25:05.009 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:25:05.009】 >>>>>>
+13:25:10.009 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:25:10.009】 >>>>>>
+13:25:15.003 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:25:15.003】 >>>>>>
+13:25:20.014 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:25:20.014】 >>>>>>
+13:25:25.005 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:25:25.005】 >>>>>>
+13:25:30.013 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:25:30.013】 >>>>>>
+13:25:35.013 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:25:35.013】 >>>>>>
+13:25:40.012 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:25:40.012】 >>>>>>
+13:25:45.003 [scheduling-1] INFO  h.c.e.t.AppScheduledJobs - [test,35] - <<<<<< info Start: 【2025-05-15T13:25:45.003】 >>>>>>

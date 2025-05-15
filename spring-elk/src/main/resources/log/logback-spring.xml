@@ -16,6 +16,8 @@
                         "index":"elk",
                         <!--应用名称 -->
                         "appname":"${spring.application.name}",
+
+                        "service":"${springApplicationName:-}",
                         <!--打印时间 -->
                         "timestamp": "%d{yyyy-MM-dd HH:mm:ss.SSS}",
                         <!--线程名称 -->
