@@ -15,7 +15,7 @@ spring:
         maxWait: 60000
         min-idle: 5
         minEvictableIdleTimeMillis: 300000
-        password: root
+        validationQuery: 'SELECT 1 '
         poolPreparedStatements: true
         testOnBorrow: false
         testOnReturn: false
@@ -24,16 +24,16 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
         url: jdbc:mysql://192.168.10.251:3306/mybatisdemo?characterEncoding=utf-8
         username: root
-        validationQuery: 'SELECT 1 '
+        password: root
+
       ds-master-1:
         connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
         driver-class-name: com.mysql.cj.jdbc.Driver
         filters: stat,wall,log4j2
-        password: root
         type: com.alibaba.druid.pool.DruidDataSource
         url: jdbc:mysql://192.168.10.251:3306/mybatisdemo?characterEncoding=utf-8
         username: root
-
+        password: root
     props:
       sql:
         show: true

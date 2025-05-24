@@ -1,0 +1,97 @@
+spring:
+  shardingsphere:
+    props:
+      sql:
+        show: true # 参数配置，显示sql
+    datasource: # 配置数据源
+      # 给每个数据源取别名，下面的ds1,ds2,ds3任意取名字
+      names: master,master1,salve,salve1
+      # 给master-ds1每个数据源配置数据库连接信息
+      master:
+        # 配置druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.10.251:3306/xdclass_shop_order_1?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT
+        username: root
+        password: root
+        maxPoolSize: 100
+        minPoolSize: 5
+      master1:
+        # 配置druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.10.251:3306/xdclass_shop_order_0?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT
+        username: root
+        password: root
+        maxPoolSize: 100
+        minPoolSize: 5
+      salve:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.10.251:3306/xdclass_shop_order_1?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT
+        username: root
+        password: root
+        maxPoolSize: 100
+        minPoolSize: 5
+      # 配置ds2-slave
+      salve1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.10.251:3306/xdclass_shop_order_0?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT
+        username: root
+        password: root
+        maxPoolSize: 100
+        minPoolSize: 5
+      # 配置默认数据源
+      masterslave: # 配置数据源的读写分离，但是数据库一定要做主从复制
+        # 配置主从名称，可以任意取名字
+        name: ms
+        # 配置主库master，负责数据的写入
+        master-data-source-name: master
+        # 配置从库slave节点
+        slave-data-source-names: salve
+        # 配置slave节点的负载均衡均衡策略，采用轮询机制
+        load-balance-algorithm-type: round_robin
+    sharding:
+      master-slave-rules:                 # 在使用数据分片功能情况下，配置读写分离功能
+        ds0:                              # 自定义一个虚拟数据源名字，用于自动路由下方主从数据源
+          masterDataSourceName: master    # 指定主数据源
+          slaveDataSourceNames:           # 指定从数据源
+            - salve
+          loadBalanceAlgorithmType: round_robin
+        ds1: # 自定义一个虚拟数据源名字，用于自动路由下方主从数据源
+          masterDataSourceName: master1    # 指定主数据源
+          slaveDataSourceNames: # 指定从数据源
+            - salve1
+          loadBalanceAlgorithmType: round_robin
+        binding-tables: [product_order,product_order_item] # 指明了分库分表要处理的虚拟表名字
+      broadcast-tables: # 全局表列表
+        - ad_config #广播表
+        - oms_order
+        - oms_order_item
+        - oms_cart_item
+      binding‐tables:
+        - product_order,product_order_item
+      tables:
+        product_order:
+          actual-data-nodes: ds$->{0..1}.product_order_$->{0..1}
+          database-strategy:
+            inline:
+              algorithm-expression: ds$->{user_id % 2 }
+              sharding-column: user_id
+          key-generator:
+            props:
+              worker:
+                id: 1
+            column: id
+            type: SNOWFLAKE
+          table-strategy:
+            inline:
+              algorithm-expression: product_order_$->{id % 2}
+              sharding-column: id
+        product_order_item:
+          actual-data-nodes: ds$->{0..1}.product_order_item_$->{0..1}
+          table-strategy:
+            inline:
+              algorithm-expression: product_order_item_$->{product_order_id % 2}
+              sharding-column: product_order_id

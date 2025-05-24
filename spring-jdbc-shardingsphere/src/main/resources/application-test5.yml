@@ -1,0 +1,122 @@
+spring:
+  shardingsphere:
+    # 是否开启SQL显示
+    props:
+      sql:
+        show: true
+    # ====================== ↓↓↓↓↓↓ 数据源配置 ↓↓↓↓↓↓ ======================
+    datasource:
+      names: ds-master-0,ds-slave-0-1,ds-master-1,ds-slave-1-1
+      # ====================== ↓↓↓↓↓↓ 配置第1个主从库 ↓↓↓↓↓↓ ======================
+      # 主库1
+      ds-master-0:
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        filters: stat,wall,log4j2
+        initial-size: 5
+        maxActive: 20
+        maxPoolPreparedStatementPerConnectionSize: 20
+        maxWait: 60000
+        min-idle: 5
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: 'SELECT 1 '
+        poolPreparedStatements: true
+        testOnBorrow: false
+        testOnReturn: false
+        testWhileIdle: true
+        timeBetweenEvictionRunsMillis: 60000
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.10.61:3306/oms?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false # MySQL在高版本需要指明是否进行SSL连接 解决则加上 &useSSL=false
+        username: oms
+        password: oms
+      # 主库1-从库1
+      ds-slave-0-1:
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        filters: stat,wall,log4j2
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.10.63:3306/oms?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false # MySQL在高版本需要指明是否进行SSL连接 解决则加上 &useSSL=false
+        username: oms
+        password: oms
+      # ====================== ↓↓↓↓↓↓ 配置第2个主从库 ↓↓↓↓↓↓ ======================
+      # 主库2
+      ds-master-1:
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        filters: stat,wall,log4j2
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.10.62:3306/oms?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&serverTimezone=UTC&useSSL=false # MySQL在高版本需要指明是否进行SSL连接 解决则加上 &useSSL=false
+        username: oms
+        password: oms
+      # 主库2-从库1
+      ds-slave-1-1:
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        filters: stat,wall,log4j2
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.10.64:3306/oms?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&serverTimezone=UTC&useSSL=false # MySQL在高版本需要指明是否进行SSL连接 解决则加上 &useSSL=false
+        username: oms
+        password: oms
+    sharding:
+      # ====================== ↓↓↓↓↓↓ 分库分表配置 ↓↓↓↓↓↓ ======================
+#      bindingTables: [oms_order,oms_order_item] # 不绑定任何表，因为全局表不需要绑定
+      binding‐tables:
+#        - oms_order,oms_order_item
+      broadcastTables: # 全局表列表
+        - oms_company_address
+        - oms_order_operate_history
+        - oms_order_return_apply
+        - oms_order_return_reason
+        - oms_order_setting
+#        - oms_order
+        - oms_order_item
+      tables:
+        oms_order:
+          actual-data-nodes: ds$->{0..1}.oms_order_$->{0..1}
+          database-strategy:
+            inline:
+              algorithm-expression: ds$->{id%2}
+              sharding-column: id
+          key-generator:
+            column: id
+            props:
+              worker:
+                id: 1
+            type: SNOWFLAKE
+          table-strategy:
+            inline:
+              algorithm-expression: oms_order_$->{id%2}
+              sharding-column: id
+#        # 指定虚拟表与真实表的分布情况：oms_order_item表
+#        oms_order_item:
+#          actual-data-nodes: ds$->{0..1}.oms_order_item_$->{0..1}
+#          database-strategy:
+#            inline:
+#              algorithm-expression: ds$->{order_id%2}
+#              sharding-column: id
+#          # 指定表的主键生成策略,雪花算法
+#          key-generator:
+#            column: id
+#            props:
+#              worker:
+#                id: 1
+#            type: SNOWFLAKE
+#          table-strategy:
+#            inline:
+#              algorithm-expression: oms_order_item_$->{order_id%2}
+#              sharding-column: id
+      # ====================== ↓↓↓↓↓↓ 读写分离配置 ↓↓↓↓↓↓ ======================
+      master-slave-rules:
+        ds0:
+          # 主库
+          masterDataSourceName: ds-master-0
+          # 从库
+          slaveDataSourceNames:
+            - ds-slave-0-1
+          loadBalanceAlgorithmType: ROUND_ROBIN
+        ds1:
+          masterDataSourceName: ds-master-1
+          slaveDataSourceNames:
+            - ds-slave-1-1
+          loadBalanceAlgorithmType: ROUND_ROBIN
+

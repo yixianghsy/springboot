@@ -14,4 +14,6 @@ import java.util.List;
 public interface OmsOrderService {
     List<OmsOrderDetail> getList();
     void  insert(OmsOrder omsOrder);
+
+
 }

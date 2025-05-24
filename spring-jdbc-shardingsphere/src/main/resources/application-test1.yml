@@ -44,18 +44,18 @@ spring:
         connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
         driver-class-name: com.mysql.cj.jdbc.Driver
         filters: stat,wall,log4j2
-        password: root
         type: com.alibaba.druid.pool.DruidDataSource
         url: jdbc:mysql://192.168.10.251:3306/mybatisdemo?characterEncoding=utf-8
         username: root
+        password: root
       salve1:
         connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
         driver-class-name: com.mysql.cj.jdbc.Driver
         filters: stat,wall,log4j2
-        password: root
         type: com.alibaba.druid.pool.DruidDataSource
         url: jdbc:mysql://192.168.10.251:3306/mybatisdemo?characterEncoding=utf-8
         username: root
+        password: root
       # 配置默认数据源
       masterslave: # 配置数据源的读写分离，但是数据库一定要做主从复制
         # 配置主从名称，可以任意取名字
