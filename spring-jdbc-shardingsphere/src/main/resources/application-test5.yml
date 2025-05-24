@@ -61,7 +61,7 @@ spring:
       # ====================== ↓↓↓↓↓↓ 分库分表配置 ↓↓↓↓↓↓ ======================
 #      bindingTables: [oms_order,oms_order_item] # 不绑定任何表，因为全局表不需要绑定
       binding‐tables:
-#        - oms_order,oms_order_item
+        - oms_order,oms_order_item
       broadcastTables: # 全局表列表
         - oms_company_address
         - oms_order_operate_history
@@ -69,7 +69,7 @@ spring:
         - oms_order_return_reason
         - oms_order_setting
 #        - oms_order
-        - oms_order_item
+#        - oms_order_item
       tables:
         oms_order:
           actual-data-nodes: ds$->{0..1}.oms_order_$->{0..1}
@@ -87,24 +87,24 @@ spring:
             inline:
               algorithm-expression: oms_order_$->{id%2}
               sharding-column: id
-#        # 指定虚拟表与真实表的分布情况：oms_order_item表
-#        oms_order_item:
-#          actual-data-nodes: ds$->{0..1}.oms_order_item_$->{0..1}
-#          database-strategy:
-#            inline:
-#              algorithm-expression: ds$->{order_id%2}
-#              sharding-column: id
-#          # 指定表的主键生成策略,雪花算法
-#          key-generator:
-#            column: id
-#            props:
-#              worker:
-#                id: 1
-#            type: SNOWFLAKE
-#          table-strategy:
-#            inline:
-#              algorithm-expression: oms_order_item_$->{order_id%2}
-#              sharding-column: id
+        # 指定虚拟表与真实表的分布情况：oms_order_item表
+        oms_order_item:
+          actual-data-nodes: ds$->{0..1}.oms_order_item_$->{0..1}
+          database-strategy:
+            inline:
+              algorithm-expression: ds$->{order_id%2}
+              sharding-column: order_id
+          # 指定表的主键生成策略,雪花算法
+          key-generator:
+            column: id
+            props:
+              worker:
+                id: 1
+            type: SNOWFLAKE
+          table-strategy:
+            inline:
+              algorithm-expression: oms_order_item_$->{order_id%2}
+              sharding-column: order_id
       # ====================== ↓↓↓↓↓↓ 读写分离配置 ↓↓↓↓↓↓ ======================
       master-slave-rules:
         ds0:

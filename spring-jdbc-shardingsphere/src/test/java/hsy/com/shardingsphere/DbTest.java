@@ -3,8 +3,11 @@ package hsy.com.shardingsphere;
 
 import hsy.com.shardingsphere.dto.OmsOrderDetail;
 import hsy.com.shardingsphere.dto.OrderDetailDTO;
+import hsy.com.shardingsphere.mapper.OmsOrderItemMapper;
 import hsy.com.shardingsphere.mapper.OmsOrderMapper;
 import hsy.com.shardingsphere.model.OmsOrder;
+import hsy.com.shardingsphere.model.OmsOrderExample;
+import hsy.com.shardingsphere.model.OmsOrderItem;
 import hsy.com.shardingsphere.service.OmsOrderService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -36,6 +39,8 @@ public class DbTest {
     private OmsOrderService omsOrderService;
     @Autowired
     private OmsOrderMapper orderMapper;
+    @Autowired
+    private OmsOrderItemMapper omsOrderItemMapper;
     @Test
     public void getOrder() {
         List<OmsOrderDetail> list = omsOrderService.getList();
@@ -87,9 +92,38 @@ public class DbTest {
         omsOrderService.insert(order);
 
         System.out.println(order.getId());
-
-
+        List<OmsOrderItem> list = new ArrayList<>();
+        OmsOrderItem omsOrderItem = new OmsOrderItem();
+        omsOrderItem.setOrderId(order.getId());
+        omsOrderItem.setOrderSn("201809150101000001");
+        omsOrderItem.setProductId(26L);
+        omsOrderItem.setProductPic("shenzhen.aliyuncs.com/mall/images/20180607/5ac1bf58Ndefaac16.jpg");
+        omsOrderItem.setProductName("华为 HUAWEI P20");
+        omsOrderItem.setProductBrand("华为");
+        omsOrderItem.setProductSn("6946605");
+        omsOrderItem.setProductPrice(BigDecimal.valueOf(3788.00));
+        omsOrderItem.setProductQuantity(1);
+        omsOrderItem.setProductSkuId(90L);
+        omsOrderItem.setProductSkuCode("201806070026001");
+        omsOrderItem.setProductCategoryId(19l);
+        omsOrderItem.setSp1("金色");
+        omsOrderItem.setSp2("16G");
+        omsOrderItem.setSp3(null);
+        omsOrderItem.setProductName("单品促销");
+        omsOrderItem.setPromotionAmount(BigDecimal.valueOf(200.00));
+        omsOrderItem.setCouponAmount(BigDecimal.valueOf(2.02));
+        list.add(omsOrderItem);
+        omsOrderItemMapper.insertList(list);
     }
-
-
+    @Test
+    public  void  selectByExample(){
+        OmsOrderExample example = new OmsOrderExample();
+        OmsOrderExample.Criteria criteria = example.createCriteria();
+        criteria.andIdEqualTo(1133194136472522752l);
+        List<OmsOrder> omsOrders = orderMapper.selectByExample(example);
+        for (OmsOrder order:omsOrders
+             ) {
+            System.out.println(order);
+        }
+    }
 }
