@@ -3,6 +3,7 @@ package hsy.com.shardingsphere;
 
 import hsy.com.shardingsphere.dto.OmsOrderDetail;
 import hsy.com.shardingsphere.dto.OrderDetailDTO;
+import hsy.com.shardingsphere.mapper.OmsOrderMapper;
 import hsy.com.shardingsphere.model.OmsOrder;
 import hsy.com.shardingsphere.service.OmsOrderService;
 import lombok.extern.slf4j.Slf4j;
@@ -33,7 +34,8 @@ public class DbTest {
 
     @Autowired
     private OmsOrderService omsOrderService;
-
+    @Autowired
+    private OmsOrderMapper orderMapper;
     @Test
     public void getOrder() {
         List<OmsOrderDetail> list = omsOrderService.getList();
@@ -85,6 +87,8 @@ public class DbTest {
         omsOrderService.insert(order);
 
         System.out.println(order.getId());
+
+
     }
 
 

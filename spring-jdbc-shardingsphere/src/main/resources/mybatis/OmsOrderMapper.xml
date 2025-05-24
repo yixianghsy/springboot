@@ -200,10 +200,7 @@
     o.delete_status = 0  and o.member_id=1;
   </select>
 
-  <insert id="insert" parameterType="hsy.com.shardingsphere.model.OmsOrder">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insert" parameterType="hsy.com.shardingsphere.model.OmsOrder" useGeneratedKeys="true" keyProperty="id">
     insert into oms_order (member_id, coupon_id, order_sn, 
       create_time, member_username, total_amount, 
       pay_amount, freight_amount, promotion_amount, 
