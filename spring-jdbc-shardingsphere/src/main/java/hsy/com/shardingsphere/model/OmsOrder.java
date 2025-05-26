@@ -1,11 +1,14 @@
 package hsy.com.shardingsphere.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class OmsOrder implements Serializable {
-
+    @JsonSerialize(using= ToStringSerializer.class)
     private Long id;
 
     private Long memberId;

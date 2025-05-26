@@ -51,8 +51,8 @@ public class DbTest {
     }
     @Test
     public void insertOrder() {
+        for (int i = 0; i < 10; i++) {
         OmsOrder order = new OmsOrder();
-//        order.setId(12L);
         order.setMemberId(1L);
         order.setCouponId(2L);
         order.setOrderSn("201809150101000001");
@@ -114,6 +114,7 @@ public class DbTest {
         omsOrderItem.setCouponAmount(BigDecimal.valueOf(2.02));
         list.add(omsOrderItem);
         omsOrderItemMapper.insertList(list);
+        }
     }
     @Test
     public  void  selectByExample(){
